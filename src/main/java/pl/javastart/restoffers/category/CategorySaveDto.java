@@ -1,10 +1,18 @@
 package pl.javastart.restoffers.category;
 
-public class CategoryDto {
+public class CategorySaveDto {
+    private Long id;
     private String name;
     private String description;
-    private Integer offers;
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -21,11 +29,4 @@ public class CategoryDto {
         this.description = description;
     }
 
-    public Integer getOffers() {
-        return offers;
-    }
-
-    public void setOffers(Integer offers) {
-        this.offers = offers;
-    }
 }

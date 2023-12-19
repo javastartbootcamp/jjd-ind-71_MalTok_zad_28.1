@@ -14,18 +14,12 @@ public class OfferService {
         this.offerDtoMapper = offerDtoMapper;
     }
 
-    public List<OfferDto> maptoDtos(List<Offer> offerList) {
-        return offerList.stream()
-                .map(offerDtoMapper::mapToDto)
-                .toList();
-    }
-
     public List<OfferDto> findAll() {
-        return maptoDtos(offerRepository.findAll());
+        return offerDtoMapper.maptoDtos(offerRepository.findAll());
     }
 
     public List<OfferDto> findByTitleContaining(String title) {
-        return maptoDtos(offerRepository.findAllByTitleContainingIgnoreCase(title));
+        return offerDtoMapper.maptoDtos(offerRepository.findAllByTitleContainingIgnoreCase(title));
     }
 
     public OfferDto save(OfferDto offerDto) {

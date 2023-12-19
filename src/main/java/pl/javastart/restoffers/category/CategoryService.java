@@ -22,10 +22,10 @@ public class CategoryService {
         return categoryRepository.findAll().stream().map(Category::getName).toList();
     }
 
-    public CategoryDto save(CategoryDto categoryDto) {
+    public CategorySaveDto save(CategoryDto categoryDto) {
         Category category = categoryDtoMapper.map(categoryDto);
         categoryRepository.save(category);
-        return categoryDtoMapper.mapToDto(category);
+        return categoryDtoMapper.mapToSaveDto(category);
     }
 
     public void delete(Long id) {

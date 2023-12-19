@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import pl.javastart.restoffers.category.Category;
 import pl.javastart.restoffers.category.CategoryRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -35,5 +36,11 @@ public class OfferDtoMapper {
         offerDto.setPrice(offer.getPrice());
         offerDto.setCategory(offer.getCategory().getName());
         return offerDto;
+    }
+
+    public List<OfferDto> maptoDtos(List<Offer> offerList) {
+        return offerList.stream()
+                .map(this::mapToDto)
+                .toList();
     }
 }
